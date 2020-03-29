@@ -1,6 +1,5 @@
 package co.assignment.searchapp.ui.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
-import co.assignment.searchapp.R;
 import co.assignment.searchapp.databinding.NetworkItemBinding;
 import co.assignment.searchapp.databinding.SearchItemBinding;
 import co.assignment.searchapp.model.Photo;
@@ -23,12 +20,10 @@ public class SearchListAdapter extends PagedListAdapter<Photo, RecyclerView.View
     private static final int TYPE_PROGRESS = 0;
     private static final int TYPE_ITEM = 1;
 
-    private Context context;
     private NetworkState networkState;
 
-    public SearchListAdapter(Context context) {
+    public SearchListAdapter() {
         super(Photo.DIFF_CALLBACK);
-        this.context = context;
     }
 
     @NonNull

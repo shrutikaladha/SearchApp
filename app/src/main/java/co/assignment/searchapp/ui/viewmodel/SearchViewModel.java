@@ -22,6 +22,8 @@ public class SearchViewModel extends ViewModel {
     private LiveData<PagedList<Photo>> photoLiveData;
     private String queryText = "";
     FeedDataFactory feedDataFactory;
+    private final int PAGE_SIZE = 20;
+    private final int PAGE_LOAD_HINT = 10;
 
     private AppController appController;
     public SearchViewModel(@NonNull AppController appController) {
@@ -38,8 +40,8 @@ public class SearchViewModel extends ViewModel {
         PagedList.Config pagedListConfig =
                 (new PagedList.Config.Builder())
                         .setEnablePlaceholders(false)
-                        .setInitialLoadSizeHint(10)
-                        .setPageSize(20).build();
+                        .setInitialLoadSizeHint(PAGE_LOAD_HINT)
+                        .setPageSize(PAGE_SIZE).build();
 
         photoLiveData = (new LivePagedListBuilder(feedDataFactory, pagedListConfig))
                 .setFetchExecutor(executor)

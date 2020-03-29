@@ -27,7 +27,7 @@ public class SearchActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         searchViewModel = new SearchViewModel(AppController.create(this));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        adapter = new SearchListAdapter(getApplicationContext());
+        adapter = new SearchListAdapter();
 
         searchViewModel.getArticleLiveData().observe(this, pagedList -> {
             adapter.submitList(pagedList);
